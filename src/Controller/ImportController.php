@@ -17,6 +17,8 @@ class ImportController extends AbstractController
         $form = $this->createForm(ProductType::class);
         $form->handleRequest($request);
 
+        $vehicules = [];
+
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form->get('upload_file')->getData();
 
@@ -41,12 +43,15 @@ class ImportController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Les données ont été importées avec succès !');
+            $vehicules = $em->getRepository(Vehicule::class)->findAll();
+
 
             
         }
 
         return $this->render('import.html.twig', [
             'form' => $form->createView(),
+            'vehicules' => $vehicules,
         ]);
     }
 }

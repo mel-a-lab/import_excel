@@ -41,7 +41,7 @@ class Vehicule
 
     public function getNom(): ?string
     {
-        return $this->name;
+        return $this->nom;
     }
 
     public function setNom(?string $nom): static

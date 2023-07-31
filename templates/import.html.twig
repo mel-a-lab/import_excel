@@ -1,17 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Import de fichier</h1>
+	<div class="container mt-3 mb-3">
+		<h1>Import de fichier</h1>
 
-{{ form_start(form) }}  <!-- missing form start tag -->
-{{ form_widget(form) }} <!-- missing form widget tag -->
-<button type="submit">Importer</button>
-{{ form_end(form) }} <!-- missing form end tag -->
 
-{% for message in app.flashes('success') %}
-    <div class="alert alert-success">
-        {{ message }}
-    </div>
-{% endfor %}
+		<!-- Formulaire d'importation -->
 
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<button type="submit" class="btn btn-primary">Importer</button>
+		{{ form_end(form) }}
+
+		<!-- Affichage de données -->
+
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+					<th>Immatriculation</th>
+					<th>Nom</th>
+					<th>Prénom</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for vehicule in vehicules %}
+					<tr>
+						<td>{{ vehicule.immatriculation }}</td>
+						<td>{{ vehicule.nom }}</td>
+						<td>{{ vehicule.prenom }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}
