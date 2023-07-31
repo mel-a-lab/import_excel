@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Import de fichier</h1>
+
+{{ form_start(form) }}  <!-- missing form start tag -->
+{{ form_widget(form) }} <!-- missing form widget tag -->
+<button type="submit">Importer</button>
+{{ form_end(form) }} <!-- missing form end tag -->
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% endblock %}
