@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Form\DataType;
 use League\Csv\Reader;
 use App\Entity\Vehicule;
 use App\Form\ProductType;
+use App\Service\DataMappingService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ImportController extends AbstractController
 {
     #[Route('/import', name: 'import')]
-    public function index(Request $request)
+    public function index(Request $request, DataMappingService $dataMappingService)
     {
         $form = $this->createForm(ProductType::class);
         $form->handleRequest($request);
@@ -31,20 +33,20 @@ class ImportController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             foreach ($records as $record) {
                 $vehicule = new Vehicule();
-                $vehicule->setImmatriculation($record['Immatriculation']);
-                $vehicule->setNom($record['Nom']);
-                $vehicule->setPrenom($record['Prénom']);
-                // Set other fields...
+                $vehiculeData = $dataMappingService->applyMapping($record);
+                $vehiculeForm = $this->createForm(DataType::class, $vehicule);
+                $vehiculeForm->submit($vehiculeData);
+                if($vehiculeForm->isValid()){
+                    $em->persist($vehicule);
+                    $em->flush();
+                    dump('test');
+                }
+                
             
-                $em->persist($vehicule);
             }
             
-
-            $em->flush();
-
             $this->addFlash('success', 'Les données ont été importées avec succès !');
             $vehicules = $em->getRepository(Vehicule::class)->findAll();
-
 
             
         }

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<div class="container mt-3 mb-3">
+	  
 		<h1>Import de fichier</h1>
 
 
@@ -9,35 +9,98 @@
 
 		{{ form_start(form) }}
 		{{ form_widget(form) }}
-		<button type="submit" class="btn btn-primary">Importer</button>
+		<button type="submit"  class="btn btn-primary">Importer</button>
 		{{ form_end(form) }}
 
 		<!-- Affichage de données -->
 
 		<table id="datatable" class="table display">
-			<thead>
-				<tr>
-					<th>Immatriculation</th>
-					<th>Nom</th>
-					<th>Prénom</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for vehicule in vehicules %}
-					<tr>
-						<td>{{ vehicule.immatriculation }}</td>
-						<td>{{ vehicule.nom }}</td>
-						<td>{{ vehicule.prenom }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-
 
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success">
 				{{ message }}
 			</div>
 		{% endfor %}
+			<thead>
+				<tr>
+				    <th>Compte affaire</th>
+					<th>Compte évènement (Veh)</th>
+					<th>Compte dernier évènement (Veh)</th>
+					<th>Numéro de fiche</th>
+					<th>Libellé civilité</th>
+					<th>Propriétaire actuel du véhicule</th>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>N° et Nom de la voie</th>
+					<th>Complément adresse 1</th>
+					<th>Code postal</th>
+					<th>Ville</th>
+					<th>Téléphone domicile</th>
+					<th>Téléphone portable</th>
+					<th>Email</th>
+					<th>Date de mise en circulation</th>
+					<th>Date achat (date de livraison)</th>
+					<th>Date dernier évènement (Veh)</th>
+					<th>Libellé marque (Mrq)</th>
+					<th>Libellé modèle (Mod)</th>
+					<th>Version</th>
+					<th>VIN</th>
+					<th>Immatriculation</th>
+					<th>Type de prospect</th>
+					<th>Kilométrage</th>
+					<th>Libellé énergie (Energ)</th>
+					<th>Vendeur VN</th>
+					<th>Vendeur VO</th>
+					<th>Commentaire de facturation (Veh)</th>
+					<th>Type VN VO</th>
+					<th>Numéro de dossier VN VO</th>
+					<th>Intermediaire de vente VN</th>
+					<th>Date évènement (Veh)</th>
+					<th>Origine évènement (Veh)</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for vehicule in vehicules %}
+					<tr>
+						<td>{{ vehicule.compteAffaire }}</td>
+						<td>{{ vehicule.compteEvenement }}</td>
+						<td>{{ vehicule.compteDernierEvenement }}</td>
+						<td>{{ vehicule.numeroDeFiche }}</td>
+						<td>{{ vehicule.libelleCivilite }}</td>
+						<td>{{ vehicule.proprietaireActuelDuVehicule }}</td>
+						<td>{{ vehicule.nom }}</td>
+						<td>{{ vehicule.prenom }}</td>
+						<td>{{ vehicule.numeroEtNomDeVoie }}</td>
+						<td>{{ vehicule.complementAdresse1 }}</td>
+						<td>{{ vehicule.codePostal }}</td>
+						<td>{{ vehicule.ville }}</td>
+						<td>{{ vehicule.telephoneDomicile }}</td>
+						<td>{{ vehicule.telephonePortable }}</td>
+						<td>{{ vehicule.email }}</td>
+						<td>{{ vehicule.dateDeMiseEnCirculation }}</td>
+						<td>{{ vehicule.dateAchat }}</td>
+						<td>{{ vehicule.dateDernierEvenement }}</td>
+						<td>{{ vehicule.libelleMarque }}</td>
+						<td>{{ vehicule.libelleModele }}</td>
+						<td>{{ vehicule.version }}</td>
+						<td>{{ vehicule.vin }}</td>
+						<td>{{ vehicule.immatriculation }}</td>
+						<td>{{ vehicule.typeDeProspect }}</td>
+						<td>{{ vehicule.kilometrage }}</td>
+						<td>{{ vehicule.libelleEnergie }}</td>
+						<td>{{ vehicule.vendeurVn }}</td>
+						<td>{{ vehicule.vendeurVo }}</td>
+						<td>{{ vehicule.commentaireDeFacturation }}</td>
+						<td>{{ vehicule.typeVnVo }}</td>
+						<td>{{ vehicule.numeroDeDossierVnVo }}</td>
+						<td>{{ vehicule.intermediaireDeVenteVn }}</td>
+						<td>{{ vehicule.dateEvenement }}</td>
+						<td>{{ vehicule.origineEvenement }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+
 	</div>
 {% endblock %}
