@@ -15,7 +15,7 @@ class ProductType extends AbstractType
         $builder
             // ...
             ->add('upload_file', FileType::class, [
-                'label' => 'Brochure (PDF file)',
+                'label' => 'Brochure (PDF file with csv extension)',
                 'mapped' => false,
                 'required' => false,            
                 'constraints' => [
