@@ -4,7 +4,7 @@ Bienvenue dans ce projet Symfony. Ce document README vous aidera à configurer e
 
 ## Prérequis
 
-- PHP 7.4 ou supérieur
+- PHP 7.2.5 ou supérieur
 - Symfony 5.4
 
 ## Installation
@@ -33,7 +33,7 @@ Bienvenue dans ce projet Symfony. Ce document README vous aidera à configurer e
 
 ## Accès au Projet
 
-Pour accéder au projet, veuillez consulter l'URL suivante: `https://127.0.0.1:8000/`
+Pour accéder au projet, veuillez consulter l'URL suivante: `https://127.0.0.1:8000/import`
 
 ## Exécution de l'application
 
