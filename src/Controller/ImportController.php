@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ImportController extends AbstractController
 {
-    #[Route('/import', name: 'import')]
+    #[Route('/', name: 'import')]
     public function index(Request $request, DataMappingService $dataMappingService)
     {
         $form = $this->createForm(ProductType::class);
