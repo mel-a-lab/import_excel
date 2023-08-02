@@ -33,7 +33,7 @@ Bienvenue dans ce projet Symfony. Ce document README vous aidera à configurer e
 
 ## Accès au Projet
 
-Pour accéder au projet, veuillez consulter l'URL suivante: `https://127.0.0.1:8000/import`
+Pour accéder au projet, veuillez consulter l'URL suivante: `https://127.0.0.1:8000/`
 
 ## Exécution de l'application
 
