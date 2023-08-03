@@ -38,19 +38,20 @@ class ImportController extends AbstractController
                 $vehiculeData = $dataMappingService->applyMapping($record);
                 $vehiculeForm = $this->createForm(DataType::class, $vehicule);
                 $vehiculeForm->submit($vehiculeData);
-                if($vehiculeForm->isValid()){
-                    $em->persist($vehicule);
-                    $em->flush();
-                    dump('test');
+                if ($vehiculeForm->isValid()) {
+                    try {
+                        $em->persist($vehicule);
+                        $em->flush();
+                        $this->addFlash('success', 'Les données ont été importées avec succès !'); // add the missing semicolon here
+                    } catch (\Exception $e) {
+                        dump($e->getMessage());
+                    }                    
                 }
-                
-            
+
             }
-            
-            $this->addFlash('success', 'Les données ont été importées avec succès !');
             $vehicules = $em->getRepository(Vehicule::class)->findAll();
 
-            
+
         }
 
         return $this->render('import.html.twig', [
