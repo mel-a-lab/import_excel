@@ -5,118 +5,192 @@ namespace App\Entity;
 use App\Repository\VehiculeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: VehiculeRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=VehiculeRepository::class)
+ */
 class Vehicule
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type:"integer")]
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $compteAffaire = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $compteEvenement = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $compteDernierEvenement = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $numeroDeFiche = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $libelleCivilite = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $proprietaireActuelDuVehicule = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $nom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $numeroEtNomDeVoie = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $complementAdresse1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $codePostal = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $ville = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $telephoneDomicile = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $telephonePortable = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $email = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $dateDeMiseEnCirculation = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $dateAchat = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $dateDernierEvenement = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $libelleMarque = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $libelleModele = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $version = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $vin = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $immatriculation = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $typeDeProspect = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $kilometrage = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $libelleEnergie = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $vendeurVn = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(length=255, nullable=true)
+     */
     private ?string $vendeurVo = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $commentaireDeFacturation = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $typeVnVo = null;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $commentaireDeFacturation = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $numeroDeDossierVnVo = null;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $typeVnVo = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $intermediaireDeVenteVn = null;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $numeroDeDossierVnVo = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $dateEvenement = null;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $intermediaireDeVenteVn = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $origineEvenement = null;
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $dateEvenement = null;
 
-    
- 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $origineEvenement = null;
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,7 +201,7 @@ class Vehicule
         return $this->compteAffaire;
     }
 
-    public function setCompteAffaire(?string $compteAffaire): static
+    public function setCompteAffaire(?string $compteAffaire): self
     {
         $this->compteAffaire = $compteAffaire;
 
@@ -139,7 +213,7 @@ class Vehicule
         return $this->compteEvenement;
     }
 
-    public function setCompteEvenement(?string $compteEvenement): static
+    public function setCompteEvenement(?string $compteEvenement): self
     {
         $this->compteEvenement = $compteEvenement;
 
@@ -151,7 +225,7 @@ class Vehicule
         return $this->compteDernierEvenement;
     }
 
-    public function setCompteDernierEvenement(?string $compteDernierEvenement): static
+    public function setCompteDernierEvenement(?string $compteDernierEvenement): self
     {
         $this->compteDernierEvenement = $compteDernierEvenement;
 
@@ -163,7 +237,7 @@ class Vehicule
         return $this->numeroDeFiche;
     }
 
-    public function setNumeroDeFiche(?string $numeroDeFiche): static
+    public function setNumeroDeFiche(?string $numeroDeFiche): self
     {
         $this->numeroDeFiche = $numeroDeFiche;
 
@@ -175,7 +249,7 @@ class Vehicule
         return $this->libelleCivilite;
     }
 
-    public function setLibelleCivilite(?string $libelleCivilite): static
+    public function setLibelleCivilite(?string $libelleCivilite): self
     {
         $this->libelleCivilite = $libelleCivilite;
 
@@ -187,7 +261,7 @@ class Vehicule
         return $this->proprietaireActuelDuVehicule;
     }
 
-    public function setProprietaireActuelDuVehicule(?string $proprietaireActuelDuVehicule): static
+    public function setProprietaireActuelDuVehicule(?string $proprietaireActuelDuVehicule): self
     {
         $this->proprietaireActuelDuVehicule = $proprietaireActuelDuVehicule;
 
@@ -199,7 +273,7 @@ class Vehicule
         return $this->nom;
     }
 
-    public function setNom(?string $nom): static
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
@@ -211,7 +285,7 @@ class Vehicule
         return $this->prenom;
     }
 
-    public function setPrenom(?string $prenom): static
+    public function setPrenom(?string $prenom): self
     {
         $this->prenom = $prenom;
 
@@ -223,7 +297,7 @@ class Vehicule
         return $this->numeroEtNomDeVoie;
     }
 
-    public function setNumeroEtNomDeVoie(?string $numeroEtNomDeVoie): static
+    public function setNumeroEtNomDeVoie(?string $numeroEtNomDeVoie): self
     {
         $this->numeroEtNomDeVoie = $numeroEtNomDeVoie;
 
@@ -235,7 +309,7 @@ class Vehicule
         return $this->complementAdresse1;
     }
 
-    public function setComplementAdresse1(?string $complementAdresse1): static
+    public function setComplementAdresse1(?string $complementAdresse1): self
     {
         $this->complementAdresse1 = $complementAdresse1;
 
@@ -247,7 +321,7 @@ class Vehicule
         return $this->codePostal;
     }
 
-    public function setCodePostal(?string $codePostal): static
+    public function setCodePostal(?string $codePostal): self
     {
         $this->codePostal = $codePostal;
 
@@ -259,7 +333,7 @@ class Vehicule
         return $this->ville;
     }
 
-    public function setVille(?string $ville): static
+    public function setVille(?string $ville): self
     {
         $this->ville = $ville;
 
@@ -271,7 +345,7 @@ class Vehicule
         return $this->telephoneDomicile;
     }
 
-    public function setTelephoneDomicile(?string $telephoneDomicile): static
+    public function setTelephoneDomicile(?string $telephoneDomicile): self
     {
         $this->telephoneDomicile = $telephoneDomicile;
 
@@ -283,7 +357,7 @@ class Vehicule
         return $this->telephonePortable;
     }
 
-    public function setTelephonePortable(?string $telephonePortable): static
+    public function setTelephonePortable(?string $telephonePortable): self
     {
         $this->telephonePortable = $telephonePortable;
 
@@ -295,7 +369,7 @@ class Vehicule
         return $this->email;
     }
 
-    public function setEmail(?string $email): static
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -307,7 +381,7 @@ class Vehicule
         return $this->dateDeMiseEnCirculation;
     }
 
-    public function setDateDeMiseEnCirculation(?string $dateDeMiseEnCirculation): static
+    public function setDateDeMiseEnCirculation(?string $dateDeMiseEnCirculation): self
     {
         $this->dateDeMiseEnCirculation = $dateDeMiseEnCirculation;
 
@@ -319,7 +393,7 @@ class Vehicule
         return $this->dateAchat;
     }
 
-    public function setDateAchat(?string $dateAchat): static
+    public function setDateAchat(?string $dateAchat): self
     {
         $this->dateAchat = $dateAchat;
 
@@ -331,7 +405,7 @@ class Vehicule
         return $this->dateDernierEvenement;
     }
 
-    public function setDateDernierEvenement(?string $dateDernierEvenement): static
+    public function setDateDernierEvenement(?string $dateDernierEvenement): self
     {
         $this->dateDernierEvenement = $dateDernierEvenement;
 
@@ -343,7 +417,7 @@ class Vehicule
         return $this->libelleMarque;
     }
 
-    public function setLibelleMarque(?string $libelleMarque): static
+    public function setLibelleMarque(?string $libelleMarque): self
     {
         $this->libelleMarque = $libelleMarque;
 
@@ -355,7 +429,7 @@ class Vehicule
         return $this->libelleModele;
     }
 
-    public function setLibelleModele(?string $libelleModele): static
+    public function setLibelleModele(?string $libelleModele): self
     {
         $this->libelleModele = $libelleModele;
 
@@ -367,7 +441,7 @@ class Vehicule
         return $this->version;
     }
 
-    public function setVersion(?string $version): static
+    public function setVersion(?string $version): self
     {
         $this->version = $version;
 
@@ -379,7 +453,7 @@ class Vehicule
         return $this->vin;
     }
 
-    public function setVin(?string $vin): static
+    public function setVin(?string $vin): self
     {
         $this->vin = $vin;
 
@@ -391,7 +465,7 @@ class Vehicule
         return $this->immatriculation;
     }
 
-    public function setImmatriculation(?string $immatriculation): static
+    public function setImmatriculation(?string $immatriculation): self
     {
         $this->immatriculation = $immatriculation;
 
@@ -403,7 +477,7 @@ class Vehicule
         return $this->typeDeProspect;
     }
 
-    public function setTypeDeProspect(?string $typeDeProspect): static
+    public function setTypeDeProspect(?string $typeDeProspect): self
     {
         $this->typeDeProspect = $typeDeProspect;
 
@@ -415,7 +489,7 @@ class Vehicule
         return $this->kilometrage;
     }
 
-    public function setKilometrage(?string $kilometrage): static
+    public function setKilometrage(?string $kilometrage): self
     {
         $this->kilometrage = $kilometrage;
 
@@ -427,7 +501,7 @@ class Vehicule
         return $this->libelleEnergie;
     }
 
-    public function setLibelleEnergie(?string $libelleEnergie): static
+    public function setLibelleEnergie(?string $libelleEnergie): self
     {
         $this->libelleEnergie = $libelleEnergie;
 
@@ -439,7 +513,7 @@ class Vehicule
         return $this->vendeurVn;
     }
 
-    public function setVendeurVn(?string $vendeurVn): static
+    public function setVendeurVn(?string $vendeurVn): self
     {
         $this->vendeurVn = $vendeurVn;
 
@@ -451,7 +525,7 @@ class Vehicule
         return $this->vendeurVo;
     }
 
-    public function setVendeurVo(?string $vendeurVo): static
+    public function setVendeurVo(?string $vendeurVo): self
     {
         $this->vendeurVo = $vendeurVo;
 
@@ -463,7 +537,7 @@ class Vehicule
         return $this->commentaireDeFacturation;
     }
 
-    public function setCommentaireDeFacturation(?string $commentaireDeFacturation): static
+    public function setCommentaireDeFacturation(?string $commentaireDeFacturation): self
     {
         $this->commentaireDeFacturation = $commentaireDeFacturation;
 
@@ -475,7 +549,7 @@ class Vehicule
         return $this->typeVnVo;
     }
 
-    public function setTypeVnVo(?string $typeVnVo): static
+    public function setTypeVnVo(?string $typeVnVo): self
     {
         $this->typeVnVo = $typeVnVo;
 
@@ -487,7 +561,7 @@ class Vehicule
         return $this->numeroDeDossierVnVo;
     }
 
-    public function setNumeroDeDossierVnVo(?string $numeroDeDossierVnVo): static
+    public function setNumeroDeDossierVnVo(?string $numeroDeDossierVnVo): self
     {
         $this->numeroDeDossierVnVo = $numeroDeDossierVnVo;
 
@@ -499,7 +573,7 @@ class Vehicule
         return $this->intermediaireDeVenteVn;
     }
 
-    public function setIntermediaireDeVenteVn(?string $intermediaireDeVenteVn): static
+    public function setIntermediaireDeVenteVn(?string $intermediaireDeVenteVn): self
     {
         $this->intermediaireDeVenteVn = $intermediaireDeVenteVn;
 
@@ -511,7 +585,7 @@ class Vehicule
         return $this->dateEvenement;
     }
 
-    public function setDateEvenement(?string $dateEvenement): static
+    public function setDateEvenement(?string $dateEvenement): self
     {
         $this->dateEvenement = $dateEvenement;
 
@@ -523,7 +597,7 @@ class Vehicule
         return $this->origineEvenement;
     }
 
-    public function setOrigineEvenement(?string $origineEvenement): static
+    public function setOrigineEvenement(?string $origineEvenement): self
     {
         $this->origineEvenement = $origineEvenement;
 
@@ -531,6 +605,6 @@ class Vehicule
     }
 
 
-   
+
 
 }
