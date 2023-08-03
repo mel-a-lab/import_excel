@@ -20,7 +20,12 @@
 			<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 			<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 			<script type="text/javascript">
-				$(document).ready(function () { $('#datatable').DataTable.DataTable( {responsive: true} );});
+				$(document).ready(function () {
+				$('#datatable').DataTable({
+					responsive: true, 
+					scrollX: true
+					});
+				});
 			</script>
 
 		{% endblock %}
