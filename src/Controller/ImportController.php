@@ -39,17 +39,16 @@ class ImportController extends AbstractController
                 $vehiculeForm = $this->createForm(DataType::class, $vehicule);
                 $vehiculeForm->submit($vehiculeData);
                 if ($vehiculeForm->isValid()) {
-                    try {
+             
                         $em->persist($vehicule);
-                        $em->flush();
-                        $this->addFlash('success', 'Les données ont été importées avec succès !'); 
-                    } catch (\Exception $e) {
-                        dump($e->getMessage());
-                    }                    
+                        $em->flush();      
+                     
                 }
 
             }
+            $this->addFlash('success', 'Les données ont été importées avec succès !'); 
             $vehicules = $em->getRepository(Vehicule::class)->findAll();
+         
 
 
         }
