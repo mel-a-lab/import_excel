@@ -42,7 +42,7 @@ class ImportController extends AbstractController
                     try {
                         $em->persist($vehicule);
                         $em->flush();
-                        $this->addFlash('success', 'Les données ont été importées avec succès !'); // add the missing semicolon here
+                        $this->addFlash('success', 'Les données ont été importées avec succès !'); 
                     } catch (\Exception $e) {
                         dump($e->getMessage());
                     }                    
