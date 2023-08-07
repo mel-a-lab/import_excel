@@ -32,25 +32,27 @@ class ImportController extends AbstractController
             $header = $csv->getHeader();
             $records = $csv->getRecords();
 
+            $firstIteration = true;
+
+
             $em = $this->getDoctrine()->getManager();
             foreach ($records as $record) {
                 $vehicule = new Vehicule();
                 $vehiculeData = $dataMappingService->applyMapping($record);
                 $vehiculeForm = $this->createForm(DataType::class, $vehicule);
                 $vehiculeForm->submit($vehiculeData);
+
+                
                 if ($vehiculeForm->isValid()) {
-             
-                        $em->persist($vehicule);
-                        $em->flush();      
-                     
+                    if ($firstIteration) {
+                        $this->addFlash('success', 'Les données ont été importées avec succès !');
+                        $firstIteration = false; // Ensure the message is only added once
+                    }
+                    $em->persist($vehicule);
+                    $em->flush();
                 }
-
             }
-            $this->addFlash('success', 'Les données ont été importées avec succès !'); 
             $vehicules = $em->getRepository(Vehicule::class)->findAll();
-         
-
-
         }
 
         return $this->render('import.html.twig', [
